@@ -1,16 +1,20 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import Box from "./Box";
+import { OrbitControls, Environment } from "@react-three/drei";
+import Car from "./Car";
 
 export default function Scene() {
   return (
-    <Canvas>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[2, 2, 2]} />
+    <Canvas camera={{ position: [3, 2, 6] }}>
+      {/* LIGHTING BASIC */}
+      <ambientLight intensity={1.5} />
+      <directionalLight position={[10, 10, 10]} intensity={2} />
 
-      <Box />
+      {/* CINEMATIC ENV */}
+      <Environment preset="city" />
 
-      <OrbitControls />
+      <Car />
+
+      <OrbitControls enableZoom />
     </Canvas>
   );
 }
