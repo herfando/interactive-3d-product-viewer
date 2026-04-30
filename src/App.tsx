@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Box from "./components/Box";
 
 function App() {
   return (
@@ -9,11 +10,8 @@ function App() {
         <ambientLight intensity={0.5} />
         <directionalLight position={[2, 2, 2]} />
 
-        {/* Object */}
-        <mesh>
-          <boxGeometry />
-          <meshStandardMaterial color="blue" />
-        </mesh>
+        {/* 3D Object */}
+        <Box />
 
         {/* Controls */}
         <OrbitControls />
