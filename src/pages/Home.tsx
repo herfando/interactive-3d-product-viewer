@@ -1,21 +1,22 @@
+import { useState } from "react";
 import Scene from "../components/Scene";
+import UI from "../components/UI";
 
 export default function Home() {
+  const [autoRotate, setAutoRotate] = useState(true);
+  const [color, setColor] = useState("red");
+
   return (
     <div style={{ display: "flex", height: "100vh" }}>
-      {/* 3D */}
       <div style={{ flex: 1 }}>
-        <Scene />
+        <Scene autoRotate={autoRotate} color={color} />
       </div>
 
-      {/* UI PANEL */}
-      <div style={{ width: 320, padding: 20 }}>
-        <h1>Lamborghini Countach</h1>
-        <p>2021 LPI 800-4</p>
-
-        <button>Reset View</button>
-        <button>Toggle Rotate</button>
-      </div>
+      <UI
+        autoRotate={autoRotate}
+        setAutoRotate={setAutoRotate}
+        setColor={setColor}
+      />
     </div>
   );
 }
